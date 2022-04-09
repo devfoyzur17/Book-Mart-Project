@@ -24,7 +24,7 @@ class _bottomNavBarState extends State<bottomNavBar> {
 
     LibraryPage(),
     CartPage(),
-    Profile(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
