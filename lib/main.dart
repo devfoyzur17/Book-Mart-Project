@@ -24,7 +24,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch:   Colors.green
+        primarySwatch:   Colors.green,
+
+        fontFamily: 'Quicksand',
       ),
       home: SplashScreen()
     );

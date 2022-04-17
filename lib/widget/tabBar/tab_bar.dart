@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../book_category_list.dart';
 import 'freeBook.dart';
 import 'newBook.dart';
+import 'publisher.dart';
 import 'start.dart';
 
 class Tabbar extends StatelessWidget {
@@ -84,7 +85,7 @@ class Tabbar extends StatelessWidget {
                       BookCategory(),
                       freeBook(),
                       PopularBooks(),
-                      Container(child: Icon(Icons.directions_bike)),
+                      PublisherPage(),
                     ],
                   ),
                 ),
