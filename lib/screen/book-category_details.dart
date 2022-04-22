@@ -1,3 +1,5 @@
+
+ // ignore_for_file: prefer_const_constructors
  
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +46,7 @@ class BookCategoryDetails extends StatelessWidget {
                           SizedBox(height: 10,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: [ 
                               
                               Text(books[index].bookName,style: TextStyle(fontWeight: FontWeight.bold),),
                               Text(books[index].authorName,style: TextStyle(color: Colors.grey),),

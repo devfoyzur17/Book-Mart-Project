@@ -1,4 +1,5 @@
- 
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -109,12 +110,9 @@ class _BookDetailsState extends State<BookDetails> {
                           itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                           itemBuilder: (context, _) => Icon(
                             Icons.star,
-                        
                             color: Colors.amber,
                           ),
-                          onRatingUpdate: (rating) {
-                            print(rating);
-                          },
+                          onRatingUpdate: (rating) {},
                         ),
                       ]),
                       SizedBox(
@@ -137,175 +135,161 @@ class _BookDetailsState extends State<BookDetails> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 115,
+                      width: 120,
                       height: 30,
                       child: SizedBox(
                           width: (MediaQuery.of(context).size.width) - 50,
                           height: 50,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Color(0xffffffff),
-                                  onPrimary: Colors.white,
-                                  elevation: 2,
-                                  side: BorderSide(
-                                    width: 2,
-                                    color: Color(0xff0d964c),
-                                  )
-                                  //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32))
+                          child: OutlinedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                                primary: Color(0xffffffff),
+                                onPrimary: Colors.white,
+                                elevation: 2,
+                                side: BorderSide(
+                                  width: 2,
+                                  color: Color(0xff0d964c),
+                                )
+                                //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32))
 
-                                  ),
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Icon(Icons.remove_red_eye_outlined,
-                                      size: 18, color: Color(0xff0d964c)),
-                                  Text(
-                                    "Preview",
-                                    style: TextStyle(
-                                        fontSize: 15, color: Color(0xff0d964c)),
-                                  )
-                                ],
-                              ))),
+                                ),
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.shopping_cart_outlined,
+                              color: Color(0xff0d964c),
+                            ),
+                            label: FittedBox(
+                                child: Text(
+                              "Add to cart",
+                              style: TextStyle(
+                                  color: Color(0xff0d964c),
+                                  fontWeight: FontWeight.bold),
+                            )),
+                          )),
                     ),
                     SizedBox(
                       width: 10,
                     ),
                     SizedBox(
-                        width: 115,
+                        width: 120,
                         height: 30,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color(0xff0d964c),
-                              onPrimary: Colors.white,
-                              elevation: 2,
-                              //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32))
-                            ),
-                            onPressed: () {
-                              showModalBottomSheet(
-                                  context: context,
-                                  builder: (context) {
-                                    return Container(
-                                      padding: EdgeInsets.all(20),
-                                      height: 250,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Divider(),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "Your payable amount:",
-                                                style: TextStyle(fontSize: 20),
-                                              ),
-                                              Text(
-                                                "৳50",
-                                                style: TextStyle(fontSize: 20),
-                                              ),
-                                            ],
-                                          ),
-                                          Divider(),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "Local payment",
-                                                style: TextStyle(fontSize: 15),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Image.asset(
-                                                    "assets/payment_image/bkash.png",
-                                                    height: 30,
-                                                    width: 30,
-                                                  ),
-                                                  Image.asset(
-                                                    "assets/payment_image/nagad.png",
-                                                    height: 30,
-                                                    width: 30,
-                                                  ),
-                                                  Image.asset(
-                                                    "assets/payment_image/rocket.png",
-                                                    height: 30,
-                                                    width: 30,
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                          Divider(),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "Debit/Credit payment",
-                                                style: TextStyle(fontSize: 15),
-                                              ),
-                                              Image.asset(
-                                                "assets/payment_image/visaCard.png",
-                                                height: 50,
-                                                width: 50,
-                                              ),
-                                            ],
-                                          ),
-                                          Spacer(),
-                                          SizedBox(
-                                              width: (MediaQuery.of(context)
-                                                      .size
-                                                      .width) -
-                                                  50,
-                                              height: 40,
-                                              child: ElevatedButton(
-                                                  style: ElevatedButton.styleFrom(
-                                                      primary:
-                                                          Color(0xff0d964c),
-                                                      onPrimary: Colors.white,
-                                                      elevation: 2,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          32))),
-                                                  onPressed: () {},
-                                                  child: Text(
-                                                    "Continue",
-                                                    style: TextStyle(
-                                                        fontSize: 17,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ))),
-                                        ],
-                                      ),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20))),
-                                    );
-                                  });
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Icon(
-                                  Icons.book_outlined,
-                                  size: 18,
-                                ),
-                                Text(
-                                  "Buy Now",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                  ),
-                                )
-                              ],
-                            ))),
+                        child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xff0d964c),
+                            onPrimary: Colors.white,
+                            elevation: 2,
+                            //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32))
+                          ),
+                          onPressed: () {
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return Container(
+                                    padding: EdgeInsets.all(20),
+                                    height: 250,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Divider(),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "Your payable amount:",
+                                              style: TextStyle(fontSize: 20),
+                                            ),
+                                            Text(
+                                              "৳50",
+                                              style: TextStyle(fontSize: 20),
+                                            ),
+                                          ],
+                                        ),
+                                        Divider(),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "Local payment",
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Image.asset(
+                                                  "assets/payment_image/bkash.png",
+                                                  height: 30,
+                                                  width: 30,
+                                                ),
+                                                Image.asset(
+                                                  "assets/payment_image/nagad.png",
+                                                  height: 30,
+                                                  width: 30,
+                                                ),
+                                                Image.asset(
+                                                  "assets/payment_image/rocket.png",
+                                                  height: 30,
+                                                  width: 30,
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                        Divider(),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "Debit/Credit payment",
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            Image.asset(
+                                              "assets/payment_image/visaCard.png",
+                                              height: 50,
+                                              width: 50,
+                                            ),
+                                          ],
+                                        ),
+                                        Spacer(),
+                                        SizedBox(
+                                            width: (MediaQuery.of(context)
+                                                    .size
+                                                    .width) -
+                                                50,
+                                            height: 40,
+                                            child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    primary: Color(0xff0d964c),
+                                                    onPrimary: Colors.white,
+                                                    elevation: 2,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        32))),
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "Continue",
+                                                  style: TextStyle(
+                                                      fontSize: 17,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ))),
+                                      ],
+                                    ),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20))),
+                                  );
+                                });
+                          },
+                          icon: Icon(Icons.book_outlined),
+                          label: Text("Buy Now"),
+                        )),
                   ],
                 ),
                 Divider(),
@@ -375,7 +359,6 @@ class _BookDetailsState extends State<BookDetails> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                    
                                       Text(
                                         widget.bookList[index].bookName,
                                         style: TextStyle(

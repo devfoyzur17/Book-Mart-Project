@@ -29,7 +29,10 @@ class _BookCategoryState extends State<BookCategory> {
           itemBuilder: (context, index) {
             return ListTile(
               title: Text(categoryList[index].categoryTitle),
-              leading: Image.asset(categoryList[index].categoryImage),
+              leading: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Image.asset(categoryList[index].categoryImage,),
+              ),
               subtitle: Text(categoryList[index].categoryQuantity),
               trailing: Icon(Icons.arrow_forward_ios_outlined),
               onTap: () {

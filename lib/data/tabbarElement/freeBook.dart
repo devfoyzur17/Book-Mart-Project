@@ -4,12 +4,15 @@
 import '../../model/all-book.dart';
 
 List<AllBook> FreeBook = [
-  AllBook("assets/diploma/e.jpg", "মায়া", "জয় আহমেদ", "৳০০", "diploma"),
-  AllBook("assets/programming/b.jpg", "মায়া", "জয় আহমেদ", "৳০০", "progmming"),
-  AllBook("assets/programming/c.jpg", "মায়া", "জয় আহমেদ", "৳০০", "progmming"),
-  AllBook("assets/programming/d.png", "মায়া", "জয় আহমেদ", "৳০০", "progmming"),
-  AllBook("assets/programming/e.png", "মায়া", "জয় আহমেদ", "৳০০", "progmming"),
-  AllBook("assets/programming/f.jpg", "মায়া", "জয় আহমেদ", "৳০০", "progmming"),
-  AllBook("assets/programming/g.jpg", "মায়া", "জয় আহমেদ", "৳০০", "progmming"),
-  AllBook("assets/programming/c.jpg", "মায়া", "জয় আহমেদ", "৳০০", "progmming"),
+  AllBook("assets/Kobita/d.jpeg", "মায়া", "জয় আহমেদ", "৳০০","kobita"),
+ 
+  AllBook("assets/romantic/d.jpg", "গাভী বিভান্ত", "আহমদ ছফা", "৳০০","romantic"), 
+  AllBook("assets/motivational/g.jpg", "স্টুডেন্ট হ্যাকস", "সাদমান সাদিক", "৳০০","motivational"),
+  AllBook("assets/motivational/c.jpg", "মুক্ত বাতাসের খোজে", "রাসেল হোসেন", "৳০০","motivational"),
+  AllBook("assets/Kobita/a.jpg", "রুপালী বাংলা", "ইয়াসিন আরাফাত", "৳০০","kobita"),
+  AllBook("assets/islamic/e.png", "মানসাঙ্ক", "ডা. শামসুল আরেফিন", "৳০০","islamic"), 
+   AllBook("assets/books_image/this_app6.jpg", "সাত কিশোরের অভিযান", "ইমদাদুল হক আহমেদ", "৳০০","thisApp"),
+
+   AllBook("assets/newbook/e.png", "পাগলা দাশু", "সুকুমার রায়", "৳০০", "thisWeak"),
+   
 ];

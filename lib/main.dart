@@ -1,10 +1,10 @@
   
 // ignore_for_file: prefer_const_constructors
 
-
+ 
 import 'package:flutter/material.dart';
-
-import 'screen/splash_screen/splash_screen.dart';
+ 
+import 'widget/bottom_nav_bar.dart';
 
 void main(){
   runApp(MyApp());
@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
 
         fontFamily: 'Quicksand',
       ),
-      home: SplashScreen()
+      home: bottomNavBar()
     );
   }
 }

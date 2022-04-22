@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import '../../data/tabbarElement/popular.dart';
@@ -24,6 +26,7 @@ class PopularBooks extends StatelessWidget {
                   itemBuilder: (context,index){
                     return Container(
                       height: MediaQuery.of(context).size.height,
+                      padding: EdgeInsets.only(left: 10),
                       child: Column(
                         children: [
                           ClipRRect(
@@ -34,7 +37,7 @@ class PopularBooks extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(Popular[index].bookName,style: TextStyle(fontWeight: FontWeight.bold),),
+                              FittedBox(child: Text(Popular[index].bookName,style: TextStyle(fontWeight: FontWeight.bold),)),
                               Text(Popular[index].authorName,style: TextStyle(color: Colors.grey),),
                               Text(Popular[index].price),
                             ],

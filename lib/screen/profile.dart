@@ -48,8 +48,10 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(height: 50,),
             
    
-          Container(
-            height: 500,
+          Flexible(
+            fit: FlexFit.tight,
+             
+             
             child: ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               itemCount: profileData.length,
