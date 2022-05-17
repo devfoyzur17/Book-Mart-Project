@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, duplicate_ignore, avoid_unnecessary_containers
  
+import 'package:book_mart_project/model/all-book.dart';
 import 'package:book_mart_project/widget/tabBar/popularBook.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +10,15 @@ import 'newBook.dart';
 import 'publisher.dart';
 import 'start.dart';
 
-class Tabbar extends StatelessWidget {
-  const Tabbar({
-    Key? key,
-  }) : super(key: key);
+class Tabbar extends StatefulWidget {
+  
+  const Tabbar( );
+
+  @override
+  State<Tabbar> createState() => _TabbarState();
+}
+
+class _TabbarState extends State<Tabbar> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

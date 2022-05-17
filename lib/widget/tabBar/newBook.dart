@@ -1,7 +1,10 @@
 
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import '../../data/tabbarElement/newBook.dart';
+import '../../screen/book_details.dart';
 
 class newBook extends StatefulWidget {
   const newBook({ Key? key }) : super(key: key);
@@ -32,9 +35,14 @@ class _newBookState extends State<newBook> {
                       height: MediaQuery.of(context).size.height,
                       child: Column(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
-                            child: Image.asset(NewBook[index].image,height:160, width: 105,fit: BoxFit.cover,),
+                          GestureDetector(
+                            onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetails(recieveData: NewBook[index], bookList: NewBook,)));
+                        },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: Image.asset(NewBook[index].image,height:160, width: 105,fit: BoxFit.cover,),
+                            ),
                           ),
                           SizedBox(height: 10,),
                           Column(
@@ -42,7 +50,7 @@ class _newBookState extends State<newBook> {
                             children: [
                               Text(NewBook[index].bookName,style: TextStyle(fontWeight: FontWeight.bold),),
                               Text(NewBook[index].authorName,style: TextStyle(color: Colors.grey),),
-                              Text(NewBook[index].price),
+                              Text(NewBook[index].price, style: TextStyle(color: Colors.red),),
                             ],
                           )
                         ],

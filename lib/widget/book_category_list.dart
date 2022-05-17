@@ -36,8 +36,8 @@ class _BookCategoryState extends State<BookCategory> {
               subtitle: Text(categoryList[index].categoryQuantity),
               trailing: Icon(Icons.arrow_forward_ios_outlined),
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => BookCategoryDetails(books: [])));
+                // Navigator.of(context).push(
+                //     MaterialPageRoute(builder: (context) => BookCategoryDetails(books: [])));
               },
             );
           }),

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../data/tabbarElement/popular.dart';
+import '../../screen/book_details.dart';
 
 class PopularBooks extends StatelessWidget {
   const PopularBooks({ Key? key }) : super(key: key);
@@ -29,9 +30,16 @@ class PopularBooks extends StatelessWidget {
                       padding: EdgeInsets.only(left: 10),
                       child: Column(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
-                            child: Image.asset(Popular[index].image,height:160, width: 105,fit: BoxFit.cover,),
+                          GestureDetector(
+                            
+                                onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetails(recieveData: Popular[index], bookList: Popular)));
+                       
+                                },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: Image.asset(Popular[index].image,height:160, width: 105,fit: BoxFit.cover,),
+                            ),
                           ),
                           SizedBox(height: 10,),
                           Column(
@@ -39,7 +47,7 @@ class PopularBooks extends StatelessWidget {
                             children: [
                               FittedBox(child: Text(Popular[index].bookName,style: TextStyle(fontWeight: FontWeight.bold),)),
                               Text(Popular[index].authorName,style: TextStyle(color: Colors.grey),),
-                              Text(Popular[index].price),
+                              Text(Popular[index].price, style: TextStyle(color: Colors.red)),
                             ],
                           )
                         ],

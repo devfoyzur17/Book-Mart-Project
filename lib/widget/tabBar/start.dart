@@ -6,12 +6,15 @@ import '../../controller/book_controller.dart';
 import '../../model/all-book.dart';
 import '../CategoryHeder.dart';
 import '../books_widget.dart';
+
 class start extends StatefulWidget {
   const start({Key? key}) : super(key: key);
 
   @override
   State<start> createState() => _startState();
-}class _startState extends State<start> {
+}
+
+class _startState extends State<start> {
   List<AllBook> thisWeak = BookClass().faceData("thisWeak");
   List<AllBook> thisApp = BookClass().faceData("thisApp");
   List<AllBook> islamic = BookClass().faceData("islamic");
@@ -23,31 +26,40 @@ class start extends StatefulWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, ),
+      padding: const EdgeInsets.only(
+        left: 10,
+        right: 10,
+      ),
       child: Container(
         margin: EdgeInsets.only(bottom: 200),
-        child: ListView( 
+        child: ListView(
           children: [
-            
             // sliderWidget(),// slider ********************************************************************
-          CategoryHeder("এই সপ্তাহের নতুন বই",thisWeak),
-            BooksWidget(thisWeak),    // এই সপ্তাহের নতুন বই *************************************************************************
-           CategoryHeder("শুধু মাত্র এই অ্যাপে",thisApp),
-            BooksWidget(thisApp),     // শুধু মাত্র এই অ্যাাপ এ পাবেন *****************************************************************
-           CategoryHeder("ইসলামিক",islamic), 
+            CategoryHeder("এই সপ্তাহের নতুন বই", thisWeak),
+            BooksWidget(
+                thisWeak), // এই সপ্তাহের নতুন বই *************************************************************************
+            CategoryHeder("শুধু মাত্র এই অ্যাপে", thisApp),
+            BooksWidget(
+                thisApp), // শুধু মাত্র এই অ্যাাপ এ পাবেন *****************************************************************
+            CategoryHeder("ইসলামিক", islamic),
             BooksWidget(islamic),
-             CategoryHeder("কবিতা",kobita),     // ইসলামিক ********************************************************************************
-            BooksWidget(kobita),      // কবিতা  ********************************************************************************
-           CategoryHeder("মোটিভেশনাল",motivational),
-            BooksWidget(motivational),// মোটিভেশনাল  ********************************************************************************
-           CategoryHeder("রোমান্টিক",romantic), 
-            BooksWidget(romantic),    // রোমান্টিক  ********************************************************************************
-          
-CategoryHeder("ডিপ্লোমা",diploma),
+            CategoryHeder("কবিতা",
+                kobita), // ইসলামিক ********************************************************************************
+            BooksWidget(
+                kobita), // কবিতা  ********************************************************************************
+            CategoryHeder("মোটিভেশনাল", motivational),
+            BooksWidget(
+                motivational), // মোটিভেশনাল  ********************************************************************************
+            CategoryHeder("রোমান্টিক", romantic),
+            BooksWidget(
+                romantic), // রোমান্টিক  ********************************************************************************
+
+            CategoryHeder("ডিপ্লোমা", diploma),
             BooksWidget(diploma),
-            CategoryHeder("প্রোগ্রামিং",progmming),     // ডিপ্লোমা  ********************************************************************************
-            BooksWidget(progmming),     // প্রোগ্রামিং  ********************************************************************************
-          
+            CategoryHeder("প্রোগ্রামিং",
+                progmming), // ডিপ্লোমা  ********************************************************************************
+            BooksWidget(
+                progmming), // প্রোগ্রামিং  ********************************************************************************
           ],
         ),
       ),

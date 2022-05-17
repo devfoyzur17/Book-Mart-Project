@@ -1,3 +1,5 @@
+
+ // ignore_for_file: prefer_const_constructors
  
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -30,7 +32,14 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
         
-         body: Center(child: Image.asset("assets/icon/app_icon.png", height: 100,width: 100,)),
+         body: Column(
+           mainAxisAlignment: MainAxisAlignment.center,
+           crossAxisAlignment: CrossAxisAlignment.center,
+           children: [
+             Image.asset("assets/icon/app_icon.png", height: 100,width: 100,),
+             Center(child: Text("Book Mart", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green,fontSize: 30),))
+           ],
+         ),
     );
   }
 }

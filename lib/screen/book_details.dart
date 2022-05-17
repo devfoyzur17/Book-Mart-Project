@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:flutter/cupertino.dart';
+import 'package:book_mart_project/screen/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../data/tabbarElement/newBook.dart';
 import '../model/all-book.dart';
 
 class BookDetails extends StatefulWidget {
@@ -19,6 +20,16 @@ class BookDetails extends StatefulWidget {
 }
 
 class _BookDetailsState extends State<BookDetails> {
+  List<AllBook> newBookDataList = [];
+  void _addNewBook(String image, String bookName, String authorName,
+      String price, String booksCategory) {
+    final newBooks = AllBook(image, bookName, authorName, price, booksCategory);
+
+    setState(() {
+      newBookDataList.add(newBooks);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,10 +102,6 @@ class _BookDetailsState extends State<BookDetails> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text(widget.recieveData.booksCategory),
-                      SizedBox(
-                        height: 10,
-                      ),
                       Text(widget.recieveData.price),
                       SizedBox(
                         height: 10,
@@ -152,7 +159,20 @@ class _BookDetailsState extends State<BookDetails> {
                                 //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32))
 
                                 ),
-                            onPressed: () {},
+                            onPressed: () {
+                              _addNewBook(
+                                  widget.recieveData.image,
+                                  widget.recieveData.bookName,
+                                  widget.recieveData.authorName,
+                                  widget.recieveData.price,
+                                  widget.recieveData.booksCategory);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CartPage(
+                                            newBookData: newBookDataList,
+                                          )));
+                            },
                             icon: Icon(
                               Icons.shopping_cart_outlined,
                               color: Color(0xff0d964c),
@@ -343,13 +363,18 @@ class _BookDetailsState extends State<BookDetails> {
                               height: MediaQuery.of(context).size.height,
                               child: Column(
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(5),
-                                    child: Image.asset(
-                                      widget.bookList[index].image,
-                                      height: 160,
-                                      width: 105,
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetails(recieveData: NewBook[index], bookList: NewBook,)));
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(5),
+                                      child: Image.asset(
+                                        widget.bookList[index].image,
+                                        height: 160,
+                                        width: 105,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(

@@ -1,31 +1,34 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_final_fields
- 
+// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_final_fields, unused_local_variable
+
 import 'package:flutter/material.dart';
 
 import '../model/all-book.dart';
 import '../screen/cart.dart';
+import '../screen/cart/check.dart';
 import '../screen/library.dart';
 import '../screen/profile.dart';
 import 'tabBar/tab_bar.dart';
 
 class bottomNavBar extends StatefulWidget {
-  
-  const bottomNavBar({Key? key, }) : super(key: key);
+   
+  bottomNavBar( );
 
   @override
   State<bottomNavBar> createState() => _bottomNavBarState();
 }
 
 class _bottomNavBarState extends State<bottomNavBar> {
-  int _selectedIndex = 0;
-  List<Widget> _widgetOptions = <Widget>[
-      
-    Tabbar(),
 
+    
+  int _selectedIndex = 0;
+  List _widgetOptions = [
+    Tabbar( ),
     LibraryPage(),
-    CartPage(),
+     
+    Check(),
     ProfilePage(),
   ];
+ 
 
   void _onItemTapped(int index) {
     setState(() {
@@ -33,8 +36,11 @@ class _bottomNavBarState extends State<bottomNavBar> {
     });
   }
 
+ 
+   
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -44,21 +50,18 @@ class _bottomNavBarState extends State<bottomNavBar> {
             BottomNavigationBarItem(
               icon: ImageIcon(
                 AssetImage("assets/icon/home1.png"),
-               
               ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
                 AssetImage("assets/icon/library.png"),
-                
               ),
               label: 'Library',
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
                 AssetImage("assets/icon/cart.png"),
-                
               ),
               label: 'Cart',
             ),
@@ -79,4 +82,3 @@ class _bottomNavBarState extends State<bottomNavBar> {
     );
   }
 }
-

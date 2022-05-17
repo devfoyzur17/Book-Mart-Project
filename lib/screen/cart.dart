@@ -1,36 +1,42 @@
-// ignore_for_file: prefer_const_constructors_in_immutables
+// ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, use_key_in_widget_constructors
 
+import 'package:book_mart_project/model/all-book.dart';
 import 'package:flutter/material.dart';
 
 
 import '../model/cartdata.dart';
 
 class CartPage extends StatefulWidget {
-  CartPage({Key? key}) : super(key: key);
-
+  final List<AllBook> newBookData;
+  CartPage({required this.newBookData});
+   
   @override
   State<CartPage> createState() => _CartPageState();
 }
 
 class _CartPageState extends State<CartPage> {
-  var total = mycartdata[0].price * mycartdata.length;
-  var mybowchar = 20;
-  var pay;
-
+  
+ 
   @override
   Widget build(BuildContext context) {
+    var bookPrice = widget.newBookData[0].price;
     return Scaffold(
-      appBar: AppBar(),
+       
+      appBar: AppBar(title: Text("My Cart"),),
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.only(left: 10, right: 10),
-          child: ListView(
+          child: widget.newBookData.isEmpty? Text("data"): Column(
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 1.4,
+        
+              Flexible(
+
+                flex: 5,
+                 
+            
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: mycartdata.length,
+                  itemCount: widget.newBookData.length,
                   itemBuilder: (context, index) {
                     return Card(
                       child: Container(
@@ -44,10 +50,7 @@ class _CartPageState extends State<CartPage> {
                                 child: Container(
                                     height: 160,
                                     width: 105,
-                                    child: Image.asset(
-                                      mycartdata[index].img,
-                                      fit: BoxFit.cover,
-                                    )),
+                                    child: Image.asset(widget.newBookData[index].image)),
                               ),
                               Expanded(
                                   flex: 2,
@@ -58,14 +61,14 @@ class _CartPageState extends State<CartPage> {
                                           CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          mycartdata[index].book_name,
+                                          widget.newBookData[index].bookName,
                                           style: TextStyle(
                                             fontSize: 17,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Text(mycartdata[index].author_name),
-                                        Text(mycartdata[index].price.toString()),
+                                        Text(widget.newBookData[index].authorName),
+                                        Text(widget.newBookData[index].price),
                                         Row(
                                           children: const [
                                             Icon(
@@ -86,7 +89,7 @@ class _CartPageState extends State<CartPage> {
                                             ),
                                             Icon(
                                               Icons.star,
-                                              color: Colors.orangeAccent,
+                                              color: Colors.grey,
                                             ),
                                           ],
                                         ),
@@ -96,8 +99,9 @@ class _CartPageState extends State<CartPage> {
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
+                                              
                                           children: [
-                                            Text("Total Readed : 10M+"),
+                                            Text("Total Readed:1M+".toString()),
                                             IconButton(
                                                 onPressed: () {
                                                   // setState(() {
@@ -121,63 +125,70 @@ class _CartPageState extends State<CartPage> {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Total Amunt ",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-                  Text("${total.toString()}৳",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-                ],
-              ),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "pay ment ",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  ),
-                  Text(
-                    '${pay = total - mybowchar} ৳',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                  height: 40,
-                  margin: EdgeInsets.only(
-                    right: 150,
-                  ),
-                  child: TextField(
-                    textAlign: TextAlign.center,
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(top: 10),
-                      hintText: "Type promo code here",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                    ),
-                  )),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(40)),
-                child: TextButton(
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Text("Pay Now!"), Icon(Icons.arrow_forward)],
-                  ),
+             Flexible(
+               flex: 2,
+               child: Column(
+                 children: [
+                    Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Total Amunt ",
+                        style:
+                            TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                    Text("${bookPrice}৳",
+                        style:
+                            TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                  ],
                 ),
-              )
+                Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "pay ment ",
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      '${bookPrice} ৳',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                    height: 40,
+                    margin: EdgeInsets.only(
+                      right: 150,
+                    ),
+                    child: TextField(
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 10),
+                        hintText: "Type promo code here",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                      ),
+                    )),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(40)),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [Text("Pay Now!", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),), Icon(Icons.arrow_forward)],
+                    ),
+                  ),
+                )
+                 ],
+               ),
+             )
             ],
           ),
         ),

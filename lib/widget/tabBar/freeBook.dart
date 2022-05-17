@@ -5,6 +5,7 @@ import 'package:book_mart_project/data/tabbarElement/freeBook.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/tabbarElement/freeBook.dart';
+import '../../screen/book_details.dart';
 
 class freeBook extends StatefulWidget {
   const freeBook({ Key? key }) : super(key: key);
@@ -36,9 +37,16 @@ class _freeBookState extends State<freeBook> {
                       height: MediaQuery.of(context).size.height,
                       child: Column(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
-                            child: Image.asset(FreeBook[index].image,height:160, width: 105,fit: BoxFit.cover,),
+                          GestureDetector(
+
+                                onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetails(recieveData: FreeBook[index], bookList: FreeBook,)));
+                       
+                                },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: Image.asset(FreeBook[index].image,height:160, width: 105,fit: BoxFit.cover,),
+                            ),
                           ),
                           SizedBox(height: 10,),
                           Padding(
